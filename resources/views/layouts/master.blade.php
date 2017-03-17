@@ -52,9 +52,7 @@
 
 
 @include('layouts.scripts')
-
-
-
+@include('Alerts::show')
 @yield('scripts')
 
 

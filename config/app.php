@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
+        Socieboy\Alerts\AlertServiceProvider::class,
 
     ],
 

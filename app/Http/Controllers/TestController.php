@@ -11,12 +11,12 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-        $beatles = ['John', 'Paul', 'George', 'Ringo'];
-        return view('test.index',compact('beatles'));
-    }
+   public function index()
+{
+$beatles = ['John', 'Paul', 'George', 'Ringo'];
+alert()->overlay('Listen', 'I hear beatle music!', 'success');
+return view('test.index', compact('beatles'));
+}
 
     /**
      * Show the form for creating a new resource.
