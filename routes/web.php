@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('index', 'TestController@index')->name('index');
+
+Auth::routes();
+
+
+Route::get('/', 'PagesController@index');
+
