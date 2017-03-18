@@ -17,4 +17,6 @@ Auth::routes();
 
 
 Route::get('/', 'PagesController@index');
+Route::resource('widget', 'WidgetController');
+
 
