@@ -4,7 +4,6 @@
 
     <title>Create a Widget</title>
 
-@endsection
 
 @section('content')
 
@@ -52,5 +51,5 @@
         </div>
 
     </form>
-
+@include('Alerts::show')
 @endsection

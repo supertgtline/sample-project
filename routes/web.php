@@ -15,8 +15,13 @@ Route::get('index', 'TestController@index')->name('index');
 
 Auth::routes();
 
-
 Route::get('/', 'PagesController@index');
-Route::resource('widget', 'WidgetController');
+Route::get('widget/create', 'WidgetController@create')->name('widget.create');
+
+Route::get('widget/{widget}-{slug?}','WidgetController@show')->name('widget.show');
+Route::resource('widget', 'WidgetController', ['except' => ['show', 'create']]);
+Route::patch('widget/{widget}', 'WidgetController@update');
+
+
 
 
