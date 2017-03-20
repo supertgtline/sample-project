@@ -13,7 +13,7 @@ class TestController extends Controller
      */
    public function index()
 {
-$result = Widget:findorFail(200);
+throw new EmailNotProvidedException('facebook');
 }
 
     /**
