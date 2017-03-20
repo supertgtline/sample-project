@@ -12,9 +12,9 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
    public function index()
-{
-throw new EmailNotProvidedException('facebook');
-}
+    {
+    throw new EmailNotProvidedException('facebook');
+    }
 
     /**
      * Show the form for creating a new resource.

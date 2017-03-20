@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Widget;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
+use App\Http\AuthTraits\OwnsRecord;
 
 class WidgetController extends Controller
+
 {
+    use OwnsRecord;
     /**
      * Display a listing of the resource.
      *
@@ -130,17 +133,33 @@ class WidgetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Widget $widget)
+    public function update(Request $request, $id)
 
     {
 
         $this->validate($request, [
 
-            'name' => 'required|string|max:40|unique:widgets,name,' .$widget->id
+            'name' => 'required|string|max:30|unique:widgets,name,' .$id
 
 
 
         ]);
+
+
+
+        $widget = Widget::findOrFail($id);
+
+
+
+        if ($this->userNotOwnerOf($widget)){
+
+
+
+            dd('you are not the owner');
+
+
+
+        }
 
 
 

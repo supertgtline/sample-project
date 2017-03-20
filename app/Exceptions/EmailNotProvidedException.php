@@ -12,10 +12,4 @@ class EmailNotProvidedException extends \Exception
 
 {
 
-
-
-
-
-
-
 }
