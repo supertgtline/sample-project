@@ -16,10 +16,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use App\Exceptions\EmailNotProvidedException;
 
-
-
-
-
+use App\Exceptions\UnauthorizedException;
 
 
 class Handler extends ExceptionHandler
@@ -55,8 +52,6 @@ class Handler extends ExceptionHandler
 
 
     ];
-
-
 
     /**
 
@@ -107,24 +102,47 @@ class Handler extends ExceptionHandler
         switch($exception){
 
 
-
-
-
-
-
             case $exception instanceof EmailNotProvidedException :
+
+
+
+            if ($request->ajax()) {
+
+                return response()->json(['error' => 'Email Not Found'], 500);
+
+            }
+
+            return response()->view('errors.email-not-provided-exception', compact('exception'), 500);
+
+            break;
+            case $exception instanceof NoActiveAccountException:
 
 
 
                 if ($request->ajax()) {
 
-                    return response()->json(['error' => 'Email Not Found'], 500);
+                    return response()->json(['error' => 'No Active Account'], 500);
 
                 }
 
 
 
-                return response()->view('errors.email-not-provided-exception', compact('exception'), 500);
+                return response()->view('errors.no-active-account-exception', compact('exception'), 500);
+
+                break;
+            case $exception instanceof UnauthorizedException:
+
+
+
+                if ($request->ajax()) {
+
+                    return response()->json(['error' => 'Unauthorized'], 500);
+
+                }
+
+
+
+                return response()->view('errors.unauthorized-exception', compact('exception'), 500);
 
                 break;
 
@@ -136,21 +154,7 @@ class Handler extends ExceptionHandler
 
                 return parent::render($request, $exception);
 
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
 
     }
 
@@ -179,8 +183,6 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
 
         }
-
-
 
         return redirect()->guest('login');
 

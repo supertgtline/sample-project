@@ -38,7 +38,7 @@
 
                             <div class="col-md-6">
 
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus>
 
 
 
@@ -66,7 +66,7 @@
 
                             <div class="col-md-6">
 
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
 
 
@@ -94,7 +94,7 @@
 
                             <div class="col-md-6">
 
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password">
 
 
 
@@ -114,7 +114,7 @@
 
 
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
@@ -122,7 +122,67 @@
 
                             <div class="col-md-6">
 
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+
+
+
+                                @if ($errors->has('password_confirmation'))
+
+                                    <span class="help-block">
+
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+
+                                    </span>
+
+                                @endif
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label class="col-md-4 control-label">Subscribe to Newsletter?
+
+                            </label>
+
+                            <div class="col-md-6">
+
+                                <input type="checkbox"  name="is_subscribed">
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label class="col-md-4 control-label{{ $errors->has('terms') ? ' has-error' : '' }}">
+
+                                <a href="/terms-of-service">
+
+
+
+                                    Agree To Terms
+
+
+
+                                </a></label>
+
+
+
+                            <div class="col-md-6">
+
+                                <input type="checkbox"  name="terms" required>
+
+                                @if ($errors->has('terms'))
+
+                                    <span class="help-block"><strong>{{ $errors->first('terms') }}</strong></span>
+
+                                @endif
 
                             </div>
 

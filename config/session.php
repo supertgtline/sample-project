@@ -176,4 +176,6 @@ return [
 
     'http_only' => true,
 
+    'domain'=>env('SESSION_DOMAIN','sampleproject.dev'),
+
 ];
