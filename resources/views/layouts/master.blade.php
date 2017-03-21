@@ -28,7 +28,7 @@
 
 <body role="document">
 
-
+@include('layouts.facebook')
 
 <!-- Fixed navbar -->
 

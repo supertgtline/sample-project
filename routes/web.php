@@ -33,5 +33,5 @@ Route::get('auth/{provider}','Auth\AuthController@uthController@redirectToProvid
 
 Route::get('auth/{provider}/callback','Auth\AuthController@handleProviderCallback');
 
-
+Route::get('/', 'PagesController@index')->name('home');
 

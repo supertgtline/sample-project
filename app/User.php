@@ -42,4 +42,7 @@ class User extends Authenticatable
     public function isActiveStatus(){
         return Auth::user()->status_id == 10;
     }
+    public function socialProviders(){
+        return $this->hasMany('App\socialProviders');
+    }
 }

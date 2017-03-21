@@ -70,6 +70,16 @@
 
                             <li>
 
+                                <a href="/auth/facebook">
+
+                                    <i class="fa fa-facebook"></i>&nbsp;&nbsp; Sync </a>
+
+                            </li>
+
+
+
+                            <li>
+
                                 <a href="/logout"
 
                                    onclick="event.preventDefault();
@@ -98,9 +108,21 @@
 
                 @else
 
+
+
                     <li><a href="/login">Login</a></li>
 
                     <li><a href="/register">Register</a></li>
+
+                    <li>
+
+                        <a href="/auth/facebook">
+
+                            <i class="fa fa-facebook"></i>&nbsp;&nbsp; Sign in </a>
+
+
+
+                    </li>
 
 
 
