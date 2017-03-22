@@ -49,4 +49,7 @@ class AuthController extends Controller
 	* @param \Illuminate\Http\Request $request
 	* @return \Illuminate\Http\Response
 	*/
+	public function login(Request $request){
+		$this->validateLogin($request);
+	}
 }
